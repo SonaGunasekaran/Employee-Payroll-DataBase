@@ -17,5 +17,9 @@ insert into payroll_table values ('Monica',1000,'2021-07-24')
 insert into payroll_table values ('Joey',100000,'2021-07-25')
 insert into payroll_table values ('Ross',100,'2021-07-26')
 
----------UC3-Retrieve values from the employee payroll table--------
+---------UC4-Retrieve values from the employee payroll table--------
 select *from payroll_table
+
+---------UC5-Retrieve salary for particular employee from table--------
+select Salary from payroll_table where Name ='Joey'
+select Salary from payroll_table where StartDate between cast('2021-07-24' as date) and GetDate();
