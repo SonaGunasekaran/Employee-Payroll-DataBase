@@ -29,3 +29,15 @@ alter table payroll_table add Gender varchar(10)
 update payroll_table set Gender='M' where Name='Joey' or Name='Chandler'or Name='Ross'
 update payroll_table set Gender='F' where Name ='Monica'
 select * from payroll_table;
+
+---------UC7 Database functions---------
+select sum(Salary) as TotalSalary from payroll_table group by gender;
+select avg(Salary) as AverageSalary from payroll_table group by gender;
+select min(Salary) as MinimumSalary from payroll_table group by gender;
+select max(Salary) as MaximumSalary from payroll_table group by gender;
+
+
+
+
+
+
