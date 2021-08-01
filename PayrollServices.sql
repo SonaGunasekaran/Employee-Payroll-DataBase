@@ -44,7 +44,21 @@ update payroll_table set PhoneNumber=56789 , Address='Seattle' , Department='Dev
 update payroll_table set PhoneNumber=573869318 , Address='India' , Department='Associate' where Name='Joey'
 update payroll_table set PhoneNumber=376638 , Address='German' , Department='HR' where Name='Ross'
 select * from payroll_table;
-
+---------UC9 Insert BasicPay,Deduction into the table and Calculate NetPay---------
+alter table payroll_table drop column salary
+alter table payRoll_table add BasicPay int, Deductions float, TaxablePay float, IncomeTax float,NetPay float
+update payroll_table set BasicPay=4000, Deductions=1000, TaxablePay=100,Incometax=100 where Name='Chandler';
+update payroll_table set NetPay=(BasicPay-Deductions) where Name ='chandler';
+select * from payroll_table;
+update payroll_table set BasicPay=6000, Deductions=2000, TaxablePay=1000,Incometax=200 where Name='Monica';
+update payroll_table set NetPay=(BasicPay-Deductions) where Name ='Monica';
+select * from payroll_table;
+update payroll_table set BasicPay=8000, Deductions=3000, TaxablePay=2000,Incometax=300 where Name='Joey';
+update payroll_table set NetPay=(BasicPay-Deductions) where Name ='Joey';
+select * from payroll_table;
+update payroll_table set BasicPay=10000, Deductions=4000, TaxablePay=3000,Incometax=400 where Name='Ross';
+update payroll_table set NetPay=(BasicPay-Deductions) where Name ='Ross';
+select * from payroll_table;
 
 
 
