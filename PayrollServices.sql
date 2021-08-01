@@ -35,6 +35,19 @@ select sum(Salary) as TotalSalary from payroll_table group by gender;
 select avg(Salary) as AverageSalary from payroll_table group by gender;
 select min(Salary) as MinimumSalary from payroll_table group by gender;
 select max(Salary) as MaximumSalary from payroll_table group by gender;
+---------UC8 Insert Address,Department and PhoneNumber into the Table---------
+alter table payroll_table add PhoneNumber bigint
+alter table payroll_table add Address varchar(200) default('Canada')
+alter table payroll_table add Department varchar(100) not null default('VIP')
+update payroll_table set PhoneNumber=123456 , Address='NewYork' , Department='Tester' where Name='Chandler'
+update payroll_table set PhoneNumber=56789 , Address='Seattle' , Department='Developer' where Name='Monica'
+update payroll_table set PhoneNumber=573869318 , Address='India' , Department='Associate' where Name='Joey'
+update payroll_table set PhoneNumber=376638 , Address='German' , Department='HR' where Name='Ross'
+select * from payroll_table;
+
+
+
+
 
 
 
