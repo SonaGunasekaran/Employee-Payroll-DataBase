@@ -120,6 +120,13 @@ Deductions float,
 Foreign key (Employee_Id) references Employee(Employee_Id)
 )
 select *from PayRoll
+update PayRoll set NetPay=BasicPay-Deductions;
+insert into PayRoll (Employee_Id,BasicPay,Deductions,TaxablePay,IncomeTax)values
+(1,4000,1000,100,100),
+(2,60000,2000,200,200),
+(3,8000,4000,300,400),
+(4,10000,6000,400,500),
+(5,12000,8000,500,600)
 
 
 
