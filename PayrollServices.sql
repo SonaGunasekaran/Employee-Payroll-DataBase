@@ -61,9 +61,67 @@ update payroll_table set BasicPay=10000, Deductions=4000, TaxablePay=3000,Income
 update payroll_table set NetPay=(BasicPay-Deductions) where Name ='Ross';
 select * from payroll_table;
 
----------UC10 Insert Terissa as a part of Sales and Marketing---------
+---------UC10 Inserting Terissa as a part of Sales and Marketing---------
 insert into payroll_table(Name,StartDate,Gender,PhoneNumber,Address,Department,BasicPay,Deductions,TaxablePay,IncomeTax)values('Terissa','2021-07-25','F',456789,'Marketting and Sales','Dubai',12000,6000,4000,500)
 select * from payroll_table ;
+---------UC11- Implement the ER Diagram into Payroll Service DB-----------
+create table Company
+(
+  Company_Id int identity(1,1) primary key,
+  Company_Name varchar(100)
+)
+insert into Company values('VIP')
+create table Employee
+(
+ Company_Id int,
+ Employee_Id int identity(1,1) primary key,
+ Employee_Name varchar(200),
+ Gender varchar(10),
+ Employee_PhoneNumber bigint,
+ Employee_Address varchar(300),
+ Employee_City varchar(100),
+ Employee_State varchar(100),
+ EmpLoyee_StartDate date
+ Foreign key (Company_Id) references Company(Company_ID)
+)
+select *from Employee
+
+insert into Employee values 
+(1,'Chandler','M',123456 ,'Marilon','Kindle','NewJersy','2021-07-23'),
+(1,'Monica','F',456789,'CentralPark','Adol','NewYork','2021-07-24'),
+(1,'Joey','M',123543654,'Seattle','Boredom','Canada','2021-07-25'),
+(1,'Ross','M',47656786,'Greenland','Vietnam','Mexico','2021-07-26'),
+(1,'Damon','M',716492747,'MysticFalls','Gago','London','2021-07-27')
+
+create table Department
+(
+  Employee_Id int,
+  Depatment_Id int,
+  Depatment_Name varchar(100),
+  FOREIGN KEY (Employee_Id) REFERENCES Employee(Employee_Id)
+)
+select *from Department
+
+insert into Department values
+(1,1,'HR'),
+(2,1,'Marketing'),
+(3,2,'Tester'),
+(4,3,'Developer'),
+(5,4,'HelpDesk')
+
+create table PayRoll
+(
+Employee_Id int,
+BasicPay float,
+TaxablePay float,
+IncomeTax float,
+NetPay float,
+Deductions float,
+Foreign key (Employee_Id) references Employee(Employee_Id)
+)
+select *from PayRoll
+
+
 
 
 
